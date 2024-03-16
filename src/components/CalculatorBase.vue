@@ -3,6 +3,9 @@
     {{ calculatorItems }}
 
     <div class="container">
+
+        <CalculatorDisplayScreen :display=calculatorDisplay />
+
         <div class="row">
             <div class="col calc-btn btn" @click="addNode(operations.FIRST_PARENTHESIS)">&#40;</div>
             <div class="col calc-btn btn" @click="addNode(operations.LAST_PARENTHESIS)">&#41;</div>
@@ -42,6 +45,7 @@
 
 <script setup lang="ts">
 import { Ref, ref } from 'vue';
+import CalculatorDisplayScreen from './CalculatorDisplayScreen.vue'
 
 //Idea write out the calc in an array, like a node. Then create a method which counts it down.
 enum operations {
@@ -55,7 +59,7 @@ enum operations {
 }
 
 const calculatorItems: Ref<string[]> = ref([]);
-const calculatorDisplay: Ref<string> = ref("");
+const calculatorDisplay: Ref<string> = ref("Vue Calculator");
 const calculateResult: Ref<number> = ref(0);
 
 
